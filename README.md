@@ -1,2 +1,3 @@
 # subaru-letit
-Webdev kurssi
+
+Mun committi toimii t.elisa
