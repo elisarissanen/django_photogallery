@@ -10,6 +10,9 @@ Palsu 15.9 iltapäivällä kun selvitään molemmat kotiin.
 - Mistä palikoista webbisivu tehdään? Eri django ns. palikat?
 - Sivun rakenne /pääsivu /admin jne. suunnittelu
 - Sisäänkirjautuminen + uuden käyttäjän luominen + uloskirjautuminen
+https://learndjango.com/tutorials/django-login-and-logout-tutorial
+https://docs.djangoproject.com/en/4.0/topics/auth/
+
 - Database rakenne
 - Uppaa sivulle kuvia
 - Uppaa kuvat eri tiedostoihin
