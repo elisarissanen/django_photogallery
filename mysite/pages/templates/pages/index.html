@@ -7,6 +7,18 @@
     <title>Photo gallery</title>
 </head>
 <body>
+
+{% block title %}Home{% endblock %}
+<p></p>
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
     <h1>Whadaapp</h1>
 </body>
 </html>
