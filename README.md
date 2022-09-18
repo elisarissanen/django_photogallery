@@ -2,6 +2,8 @@
 
 Palsu 15.9 iltapäivällä kun selvitään molemmat kotiin.
 
+Palsuillaan 22.9 sama aika sama paikka. Tehdään alotusraportti + katotaan mitä saatu database ja login jutuissa tehtyä.
+
 
 ### Tehtävää jne
 
