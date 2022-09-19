@@ -14,7 +14,8 @@ from .models import User, UserGallery, UserPhoto
     #list_display = ('name', 'created')
 
 admin.site.register(User)
-#admin.site.register(User, UserAdmin)
 admin.site.register(UserGallery)
 admin.site.register(UserPhoto)
+
+#admin.site.register(User, UserAdmin)
 #admin.site.register(UserPhoto, UserPhotoAdmin)
