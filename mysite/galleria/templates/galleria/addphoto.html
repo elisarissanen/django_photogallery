@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Add photo</h1>
-    <p>Esim ke 14.9. klo 45:00 -> suunnilleen näytetään miten toi post lomake rakennettiin</p>
+    <form action="add_photo" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add photo">
+    </form>
+    <p><a href="{% url 'galleria:index' %}"> View photos</a></p>
 </body>
 </html>
