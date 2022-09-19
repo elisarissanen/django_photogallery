@@ -8,8 +8,8 @@ class User(models.Model):
     # Django luo itse user id:n, alkaa 1, User.objects.get(id=1)
     # Käytetään tätä käyttäjän referointiin?
 
-    #created = models.DateTimeField('date created', auto_now_add=True)
-    name = models.CharField(max_length=50, default="user")
+    date = models.DateTimeField('date created', auto_now_add=True)
+    name = models.CharField(max_length=50, default="user") # tää default on aika sos mut testaukseen
 
     def __str__(self):
         return self.id
@@ -27,7 +27,7 @@ class UserPhoto(models.Model):
     
     name = models.CharField(max_length=50, default=None) # photo name? joku generointi tähän?
     img = models.BinaryField(default=None) # save photo as binary object, tähän tarvitsisi lisätä joku default kuva? miten toimii binääri?
-    #created = models.DateTimeField('date created', auto_now_add=True)
+    created = models.DateTimeField('date created', auto_now_add=True)
     
     # TAGS, erillinen lista?
 
