@@ -1,1 +1,20 @@
-body {background: black; color: white}
+html {
+    background-color: #faf6f2;
+}
+
+body {
+    width: 60em;
+    margin: 0 auto;
+    background-color: #DED1BD;
+    padding: 20px 25px 25px 20px;
+  }
+
+  html {
+    font-family: "Open Sans", sans-serif;
+  }
+
+
+  h1 {
+    color: white;
+    text-align: center;
+  }
