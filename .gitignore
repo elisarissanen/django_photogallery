@@ -96,6 +96,9 @@ StyleCopReport.xml
 # db.sqlite3
 db.sqlite3
 
+# Ignore media/images/ folder
+/mysite/media/images/
+
 # Chutzpah Test files
 _Chutzpah*
 
