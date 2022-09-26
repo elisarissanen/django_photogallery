@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+# TÄTÄ USER MODELIA EI VÄLTTIS KÄYTETÄ
 class User(models.Model):
     """Database user information"""
     
@@ -12,12 +13,17 @@ class User(models.Model):
     name = models.CharField(max_length=50, default="user") # tää default on aika sos mut testaukseen
 
     def __str__(self):
-        return self.id
+        return self.name
     
 
 class UserGallery(models.Model):
     """Database object UserGallery to store images"""
-    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null=True)
+    
+    user = models.OneToOneField(User,
+    primary_key=True,
+    on_delete=models.CASCADE,
+    help_text=_('User (Required).'),
+    )
 
 
 
