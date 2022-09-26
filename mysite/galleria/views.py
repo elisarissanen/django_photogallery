@@ -6,8 +6,38 @@ from django.urls import reverse
 from django.urls.base import reverse_lazy
 from django.views.generic.edit import CreateView
 
-from .forms import AddPhotoForm
+#from .forms import AddPhotoForm
 from .models import UserPhoto
+
+
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from .models import UserPhoto
+from .forms import UploadForm
+
+def display_images(request):
+    if request.method == 'GET':
+        UserPhotos = UserPhoto.objects.all()
+        return render(request, 'galleria/index.html', {'UserPhotos' : UserPhotos})
+
+def image_upload(request):
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('galleria:success')
+    else:
+        form = UploadForm()
+    return render(request, 'galleria/upload.html', {'form' : form})
+
+
+def success(request):
+    return render(request, 'galleria/success.html', {})
+    
+
+
+
+
 
 
 def index(request):

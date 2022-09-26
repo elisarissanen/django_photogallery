@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo gallery | Photos</title>
-</head>
-<body>
-    <h1>Kuvagaltsu</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Images</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+    </head>
+    <body>
+        <div class="col-md-12">
+            <h1>Gallery</h1>
+            <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
 
-    <p><a href="{% url 'galleria:add_photo' %}">Add a photo</a></p>
-    
-</body>
+
+			{% block content %}
+			{% if user.is_authenticated %}
+			Hi {{ user.username }}!
+			<p><a href="{% url 'logout' %}">Log Out</a></p>
+			{% else %}
+			<p>You are not logged in</p>
+			<a href="{% url 'login' %}">Log In</a>
+			{% endif %}
+			{% endblock %}
+        </div>
+
+        {% for UserPhoto in UserPhotos %}
+        <div class="col-md-4">
+            <p>{{ UserPhoto.description }}</p>
+            <img src="{{ UserPhoto.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+        </div>
+        {% endfor %}
+
+    </body>
 </html>
+
