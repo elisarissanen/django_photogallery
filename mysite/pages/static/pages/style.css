@@ -1,20 +1,55 @@
+.layout {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.leiska1{
+  flex: 1;
+  background-color: #113F59;
+  padding: 15px;
+}
+
+.leiska2{
+  flex: 3;
+  background-color: #113F59;
+  padding: 15px;
+}
+
 html {
-    background-color: #faf6f2;
+    background-color: #0A2434;
 }
 
 body {
-    width: 60em;
-    margin: 0 auto;
-    background-color: #DED1BD;
-    padding: 20px 25px 25px 20px;
-  }
+  margin: 0 auto;
+  width: 70em;
+  color: white;
+  font-family: "Open Sans";
+}
 
-  html {
-    font-family: "Open Sans", sans-serif;
-  }
+h1{
+  text-align: center;
+}
+h2,h3,h4,h5,h6 {font-family: "Oswald"}
 
 
-  h1 {
-    color: white;
-    text-align: center;
-  }
+/* unvisited link */
+a:link {
+  color: rgb(142, 226, 252);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(69, 159, 182);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(57, 201, 165);
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}

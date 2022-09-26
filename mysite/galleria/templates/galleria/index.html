@@ -3,14 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Images</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
         </script>
     </head>
-    <body>
         <div class="col-md-12">
             <h1>Gallery</h1>
             <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
@@ -33,6 +36,7 @@
             <img src="{{ UserPhoto.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
         </div>
         {% endfor %}
+
 
     </body>
 </html>
