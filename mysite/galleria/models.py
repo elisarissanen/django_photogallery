@@ -22,7 +22,7 @@ class UserGallery(models.Model):
     user = models.OneToOneField(User,
     primary_key=True,
     on_delete=models.CASCADE,
-    help_text=_('User (Required).'),
+    #help_text=_('User (Required).'),
     )
 
 #def user_directory_path(instance, filename):
