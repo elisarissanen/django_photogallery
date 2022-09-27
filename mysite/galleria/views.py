@@ -15,11 +15,14 @@ from django.shortcuts import render, redirect
 from .models import UserPhoto
 from .forms import UploadForm
 
+from django.contrib.auth.decorators import login_required
+
 def display_images(request):
     if request.method == 'GET':
         UserPhotos = UserPhoto.objects.all()
         return render(request, 'galleria/index.html', {'UserPhotos' : UserPhotos})
 
+@login_required
 def image_upload(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)

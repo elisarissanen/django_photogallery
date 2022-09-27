@@ -4,8 +4,8 @@ from django.db import models
 
 # TÄTÄ USER MODELIA EI VÄLTTIS KÄYTETÄ
 class User(models.Model):
-    """Database user information"""
-    
+#    """Database user information"""
+#
     # Django luo itse user id:n, alkaa 1, User.objects.get(id=1)
     # Käytetään tätä käyttäjän referointiin?
 
@@ -14,20 +14,22 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class UserGallery(models.Model):
     """Database object UserGallery to store images"""
-    
     user = models.OneToOneField(User,
     primary_key=True,
     on_delete=models.CASCADE,
     #help_text=_('User (Required).'),
     )
 
+
 #def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
 #    return 'user_{0}/{1}'.format(instance.user.id, filename)
+
+
 
 class UserPhoto(models.Model):
     """ kuvan tallennus käyttäjäID:tä vastaavaan sijaintiin media kansiossa """
@@ -44,5 +46,5 @@ class UserPhoto(models.Model):
     
     # TAGS, erillinen lista?
 
-    def __str__(self):
-        return self.name
+#    def __str__(self):
+#       return self.name
