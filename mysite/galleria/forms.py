@@ -4,7 +4,7 @@ from .models import UserPhoto
 class UploadForm(forms.ModelForm):
     class Meta:
         model = UserPhoto
-        fields = ['description', 'image']
+        fields = ['description', 'image', 'galleria']
 
 #Vanhat:
 #class AddPhotoForm(forms.Form):
