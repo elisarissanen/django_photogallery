@@ -2,6 +2,9 @@ from email.policy import default
 from unittest.util import _MAX_LENGTH
 from django.db import models
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 # Create your models here.
 
 # TÄTÄ USER MODELIA EI VÄLTTIS KÄYTETÄ
@@ -40,10 +43,15 @@ class UserPhoto(models.Model):
     #Tähän viittaus tiettyyn galleriaan esim:
     galleria = models.ForeignKey(UserGallery, on_delete=models.CASCADE, default = 0)
     image = models.ImageField(upload_to=user_directory_path)
+    image_preview = ImageSpecField(source='image',
+                                  processors=[ResizeToFill(100, 100)],
+                                  format='JPEG',
+                                  options={'quality': 60})
+
     description = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     mod_date = models.DateTimeField('date modified', auto_now=True)
-    """Single photo with a name, added time, and the photo"""
+
    # usergallery = models.ForeignKey(UserGallery, on_delete=models.CASCADE,blank=True,null=True)
     
     #name = models.CharField(max_length=50, default=None) # photo name? joku generointi tähän?

@@ -33,7 +33,7 @@
         {% for UserPhoto in UserPhotos %}
         <div class="col-md-4">
             <p>{{ UserPhoto.description }}</p>
-            <img src="{{ UserPhoto.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+            <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
         </div>
         {% endfor %}
 
