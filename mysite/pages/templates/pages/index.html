@@ -34,8 +34,16 @@
 
 <section class="layout">
 <div class="leiska1">
+
+  {% block linkit %}
+  {% if user.is_authenticated %}
     <p><a href="/g/">Check the photo gallery</a></p>
+
+  {% else%}
     <p><a href="/accounts/signup/">Signup and get going</a></p>
+  {% endif %}
+  {% endblock %}
+  
 </div>
 <div class="leiska2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere est felis, id blandit justo vehicula eu. Nam sollicitudin id dui a condimentum. Duis quis maximus ex. Nam ac sagittis ante. Sed feugiat pellentesque lacinia. Cras porttitor sapien eget finibus scelerisque. Pellentesque consequat lacus id urna laoreet aliquet. Fusce elit arcu, elementum a faucibus sed, gravida nec nulla. Suspendisse tellus ipsum, varius a ultricies et, scelerisque nec leo. Nullam porttitor dui non pharetra blandit. Mauris pharetra nisi a fringilla placerat.
   Integer tortor sapien, iaculis faucibus quam ac, egestas lobortis purus. Proin libero justo, feugiat quis nibh in, ornare vulputate nunc. In ullamcorper vulputate orci ut mollis. In fermentum maximus pretium. Donec luctus pretium mauris sit amet tempus. Aenean non erat sed justo rhoncus dignissim. Cras id mollis ante, sed cursus erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ac dapibus nisi. Quisque scelerisque enim quis tristique accumsan. Integer eros nisl, vehicula et lectus at, sodales dictum velit. Maecenas sit amet faucibus nisl, vel semper erat.
