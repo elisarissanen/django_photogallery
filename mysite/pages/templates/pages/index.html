@@ -15,7 +15,9 @@
 <body>
 
 <p></p>
-{% block content %}
+
+<section class="ylaleiska">
+  {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
   <p><a href="{% url 'logout' %}">Log Out</a></p>
@@ -24,6 +26,8 @@
   <a href="{% url 'login' %}">Log In</a>
 {% endif %}
 {% endblock %}
+</section>
+
 <hr>
     <h1>Subarujengin kuvagaltsu</h1>
 <hr>

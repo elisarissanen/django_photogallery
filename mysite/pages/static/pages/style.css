@@ -17,6 +17,14 @@
   padding: 15px;
 }
 
+.ylaleiska{
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
 html {
     background-color: #0A2434;
 }
