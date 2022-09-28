@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import User
+#from .models import User
 from .models import UserGallery
 from .models import UserPhoto
 
@@ -21,7 +21,7 @@ class UserPhotoAdmin(admin.ModelAdmin):
     search_fields = ['description']
     list_filter = ['pub_date', 'mod_date']
 
-admin.site.register(User)
+#admin.site.register(User)
 admin.site.register(UserGallery)
 admin.site.register(UserPhoto, UserPhotoAdmin)
 #admin.site.register(User, UserAdmin)

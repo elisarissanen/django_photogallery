@@ -16,8 +16,8 @@
     </head>
         <div class="col-md-12">
             <h1>Gallery</h1>
+            <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
             <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
-
 
 			{% block content %}
 			{% if user.is_authenticated %}

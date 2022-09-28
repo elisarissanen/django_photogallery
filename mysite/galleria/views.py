@@ -14,6 +14,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import UserPhoto
 from .forms import UploadForm
+from .forms import CreateGalleryForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -33,13 +34,25 @@ def image_upload(request):
         form = UploadForm()
     return render(request, 'galleria/upload.html', {'form' : form})
 
+@login_required
+def create_gallery(request):
+    if request.method == 'POST':
+        formgal = CreateGalleryForm(request.POST)
+        if formgal.is_valid():
+            formgal.save()
+            return redirect('galleria:successgal')
+    else:
+        formgal = CreateGalleryForm()
+    return render(request, 'galleria/newgallery.html', {'formgal' : formgal})
+
 
 def success(request):
     return render(request, 'galleria/success.html', {})
     
 
 
-
+def successgal(request):
+    return render(request, 'galleria/successgal.html', {})
 
 
 

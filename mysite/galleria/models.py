@@ -1,27 +1,32 @@
 from email.policy import default
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 # TÄTÄ USER MODELIA EI VÄLTTIS KÄYTETÄ
-class User(models.Model):
+#class User(models.Model):
 #    """Database user information"""
 #
     # Django luo itse user id:n, alkaa 1, User.objects.get(id=1)
     # Käytetään tätä käyttäjän referointiin?
 
-    date = models.DateTimeField('date created', auto_now_add=True)
-    name = models.CharField(max_length=50, default="user") # tää default on aika sos mut testaukseen
+#    date = models.DateTimeField('date created', auto_now_add=True)
+#    name = models.CharField(max_length=50, default="user") # tää default on aika sos mut testaukseen
 
    # def __str__(self):
    #     return self.name
 
+def gallery_owner(instance):
+    current_user = request.user
+    return '{}'.format(current.user)
 
 class UserGallery(models.Model):
     """Database object UserGallery to store images"""
     #user = models.OneToOneField(User,primary_key=True,on_delete=models.CASCADE,#help_text=_('User (Required).'),)
     id = models.AutoField(primary_key=True)
+    owner = models.ForeignKey(User, default=User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=20)
     private = models.BooleanField(default = False)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
