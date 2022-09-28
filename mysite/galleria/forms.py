@@ -1,10 +1,16 @@
 from django import forms
 from .models import UserPhoto
+from .models import UserGallery
 
 class UploadForm(forms.ModelForm):
     class Meta:
         model = UserPhoto
         fields = ['description', 'image', 'galleria']
+
+class CreateGalleryForm(forms.ModelForm):
+    class Meta:
+        model = UserGallery
+        fields = ['name']
 
 #Vanhat:
 #class AddPhotoForm(forms.Form):
