@@ -19,12 +19,14 @@
         </script>
     </head>
     <body>
+        {% block content %}
         <div class="col-md-12">
+
+            
             <h1>Gallery</h1>
             <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
             <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
 
-			{% block content %}
 			{% if user.is_authenticated %}
 			Hi {{ user.username }}! Your user ID is {{ user.id }}
 			<p><a href="{% url 'logout' %}">Log Out</a></p>
@@ -32,7 +34,7 @@
 			<p>You are not logged in</p>
 			<a href="{% url 'login' %}">Log In</a>
 			{% endif %}
-			{% endblock %}
+			
         </div>
 
         {% for UserPhoto in UserPhotos %}
@@ -41,7 +43,7 @@
             <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
         </div>
         {% endfor %}
-
+        {% endblock %}
 
     </body>
 </html>
