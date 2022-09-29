@@ -1,13 +1,13 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'pages/style.css' %}">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
     <title>Photo gallery | Login</title>
@@ -37,6 +37,11 @@
 
   {% block linkit %}
   {% if user.is_authenticated %}
+
+    <form id="default-button">
+      <button formaction="/g">Check the photo gallery!</button>
+    </form>
+
     <p><a href="/g/">Check the photo gallery</a></p>
 
   {% else%}

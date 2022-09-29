@@ -19,17 +19,21 @@
         </script>
     </head>
     <body>
-        {% block content %}
-        <div class="col-md-12">
 
-            
+        <div class="ylaleiska">
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+        </div>
+
+        {% block content %}
+
+        <div class="col-md-12">
             <h1>Gallery</h1>
             <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
             <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
 
 			{% if user.is_authenticated %}
 			Hi {{ user.username }}! Your user ID is {{ user.id }}
-			<p><a href="{% url 'logout' %}">Log Out</a></p>
+			
 			{% else %}
 			<p>You are not logged in</p>
 			<a href="{% url 'login' %}">Log In</a>
