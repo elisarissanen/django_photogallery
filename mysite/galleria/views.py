@@ -60,6 +60,12 @@ def index(request):
     # context = katsokuvagalleriastakuviajalaitanejärejstykseen
     return render(request, 'galleria/index.html') #, context)
 
+
+def delete(request, id):
+  member = UserPhoto.objects.get(id=id)
+  member.delete()
+  return render(request, 'galleria/index.html', {})
+
 # tähän vois tehdä listview
 
 # Tää toimii ainakin
