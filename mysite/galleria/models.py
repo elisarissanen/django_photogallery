@@ -35,6 +35,9 @@ class UserGallery(models.Model):
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     mod_date = models.DateTimeField('date modified', auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 #Tällä autetaan tallennuskansio UserPhotoa ladatessa oikeaan gallerian kansioon
 def user_directory_path(instance, filename):
