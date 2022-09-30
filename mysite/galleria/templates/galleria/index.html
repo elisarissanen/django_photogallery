@@ -20,9 +20,15 @@
     </head>
     <body>
 
-        <div class="ylaleiska">
-            <p><a href="{% url 'logout' %}">Log Out</a></p>
-        </div>
+        <section class="ylaleiska">
+            <div id=bl1>
+                <p><a href="/g">Front page</a></p>
+            </div>
+
+            <div id=bl2>
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+            </div>  
+        </section>
 
         {% block content %}
 
