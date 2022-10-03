@@ -6,6 +6,9 @@ from django.urls import reverse
 from django.urls.base import reverse_lazy
 from django.views.generic.edit import CreateView
 
+
+from .models import UserGallery
+
 #from .forms import AddPhotoForm
 from .models import UserPhoto
 
@@ -22,6 +25,11 @@ def display_images(request):
     if request.method == 'GET':
         UserPhotos = UserPhoto.objects.all()
         return render(request, 'galleria/index.html', {'UserPhotos' : UserPhotos})
+
+def display_galleries(request):
+    if request.method == 'GET':
+            UserGalleries = UserGallery.objects.all()
+            return render(request, 'galleria/index.html', {'UserGalleries' : UserGalleries})
 
 @login_required
 def image_upload(request):

@@ -40,7 +40,13 @@
 			{% endif %}
 			
         </div>
-
+        
+        {% for UserGallery in UserGalleries %}
+        
+        <p>{{ UserGallery.name }}</p>
+        
+        {% endfor %}
+        
         {% for UserPhoto in UserPhotos %}
         <div class="col-md-4">
             <p>{{ UserPhoto.description }}</p>

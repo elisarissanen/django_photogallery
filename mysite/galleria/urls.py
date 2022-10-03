@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+
+from galleria.views import display_galleries
 from .views import *
 
 from . import views
@@ -12,6 +14,7 @@ from . import views
 app_name = 'galleria'
 urlpatterns = [
     path('', display_images, name = 'display_images'),
+    path('', display_galleries, name = 'display_galleries'),
     path('image_upload', image_upload, name = 'image_upload'),
     path('create_gallery', create_gallery, name = 'create_gallery'),
     path('success', success, name = 'success'),
