@@ -19,4 +19,5 @@ urlpatterns = [
     path('create_gallery', create_gallery, name = 'create_gallery'),
     path('success', success, name = 'success'),
     path('successgal', successgal, name = 'successgal'),
+    path('delete/<int:id>', views.delete, name='delete'),
 ]
