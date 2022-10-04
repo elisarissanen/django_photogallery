@@ -21,15 +21,16 @@ from .forms import CreateGalleryForm
 
 from django.contrib.auth.decorators import login_required
 
-def display_images(request):
+def display_images(request, id):
     if request.method == 'GET':
-        UserPhotos = UserPhoto.objects.all()
-        return render(request, 'galleria/index.html', {'UserPhotos' : UserPhotos})
+        UserPhotos = UserPhoto.objects.filter(galleria_id = id)
+        return render(request, 'galleria/galleria.html', {'UserPhotos' : UserPhotos})
 
 def display_galleries(request):
     if request.method == 'GET':
             UserGalleries = UserGallery.objects.all()
             return render(request, 'galleria/index.html', {'UserGalleries' : UserGalleries})
+
 
 @login_required
 def image_upload(request):

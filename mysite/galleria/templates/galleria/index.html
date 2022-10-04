@@ -33,7 +33,7 @@
         {% block content %}
 
         <div class="col-md-12">
-            <h1>Gallery</h1>
+            <h1>Galleriat</h1>
             <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
             <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
 
@@ -49,17 +49,12 @@
         
         {% for UserGallery in UserGalleries %}
         
-        <p>{{ UserGallery.name }}</p>
+        <h2>{{UserGallery.name}}</h2>
+        <p><a href="{% url 'galleria:display_images' id=UserGallery.id %}">Click here to check out {{ UserGallery.name }}</a></p>
         
         {% endfor %}
         
-        {% for UserPhoto in UserPhotos %}
-        <div class="col-md-4">
-            <p>{{ UserPhoto.description }}</p>
-            <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
-            <a href="delete/{{ UserPhoto.id }}">Delete</a>
-        </div>
-        {% endfor %}
+
         {% endblock %}
 
     </body>

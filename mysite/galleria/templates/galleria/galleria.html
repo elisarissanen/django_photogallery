@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Images</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+
+
+        <link rel="stylesheet" href="{% static '/pages/style.css' %}" type="text/css" />
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+    </head>
+    <body>
+
+        <section class="ylaleiska">
+            <div id=bl1>
+                <p><a href="/g">Front page</a></p>
+            </div>
+
+            <div id=bl2>
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+            </div>  
+        </section>
+
+        {% block content %}
+
+        <div class="col-md-12">
+            <h1>Gallery</h1>
+            <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
+            <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
+
+			{% if user.is_authenticated %}
+			Hi {{ user.username }}! Your user ID is {{ user.id }}
+			
+			{% else %}
+			<p>You are not logged in</p>
+			<a href="{% url 'login' %}">Log In</a>
+			{% endif %}
+			
+        </div>
+        
+              
+        {% for UserPhoto in UserPhotos %}
+
+        <div class="col-md-4">
+            <p>{{ UserPhoto.description }}</p>
+            <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+            <a href="delete/{{ UserPhoto.id }}">Delete</a>
+        </div>
+
+
+        {% endfor %}
+        {% endblock %}
+
+    </body>
+</html>
+
