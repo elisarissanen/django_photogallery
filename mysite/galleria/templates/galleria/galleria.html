@@ -47,17 +47,16 @@
 			
         </div>
         
-              
-        {% for UserPhoto in UserPhotos %}
-
-        <div class="col-md-4">
-            <p>{{ UserPhoto.description }}</p>
-            <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
-            <a href="delete/{{ UserPhoto.id }}">Delete</a>
+        <div style="width:100%">      
+            {% for UserPhoto in UserPhotos %}
+            <div style="float:left; width:30%; height:200px; margin-left: 3px">
+                <p>{{ UserPhoto.description }}</p>
+                <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+                <a href="delete/{{ UserPhoto.id }}">Delete</a>
+            </div>
+        {% endfor %}
         </div>
 
-
-        {% endfor %}
         {% endblock %}
 
     </body>
