@@ -21,6 +21,15 @@
     <body>
 
         <section class="ylaleiska">
+            <div>
+                {% if user.is_authenticated %}
+                Hi {{ user.username }}!
+                {% else %}
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">Log In</a>
+                {% endif %}
+            </div>
+
             <div id=bl1>
                 <p><a href="/g">Front page</a></p>
             </div>
@@ -31,33 +40,22 @@
         </section>
 
         {% block content %}
+        <div style="width:100%">      
+            {% for UserPhoto in UserPhotos %}
+            <div style="float:left; width:30%; height:200px; margin-left: 3px">
+                <p>{{ UserPhoto.description }}</p>
 
-        <div class="col-md-12">
-            <h1>Gallery</h1>
-            <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
-            <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
-
-			{% if user.is_authenticated %}
-			Hi {{ user.username }}! Your user ID is {{ user.id }}
-			
-			{% else %}
-			<p>You are not logged in</p>
-			<a href="{% url 'login' %}">Log In</a>
-			{% endif %}
-			
-        </div>
-        
-              
-        {% for UserPhoto in UserPhotos %}
-
-        <div class="col-md-4">
-            <p>{{ UserPhoto.description }}</p>
-            <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
-            <a href="delete/{{ UserPhoto.id }}">Delete</a>
-        </div>
+                <!--Attempts to open the image to a new window-->
+                <a href="{{UserPhoto.image.url}}" target="_blank">
+                <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+                </a>
 
 
+                <a href="delete/{{ UserPhoto.id }}">Delete</a>
+            </div>
         {% endfor %}
+        </div>
+
         {% endblock %}
 
     </body>
