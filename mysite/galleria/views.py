@@ -12,7 +12,7 @@ from .models import UserGallery
 #from .forms import AddPhotoForm
 from .models import UserPhoto
 
-
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import UserPhoto
@@ -47,7 +47,7 @@ def image_upload(request):
 def create_gallery(request):
     if request.method == 'POST':
         formgal = CreateGalleryForm(request.POST)
-        if formgal.is_valid():
+        if formgal.is_valid():           
             formgal.save()
             return redirect('galleria:successgal')
     else:

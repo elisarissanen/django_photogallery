@@ -10,7 +10,7 @@ class UploadForm(forms.ModelForm):
 class CreateGalleryForm(forms.ModelForm):
     class Meta:
         model = UserGallery
-        fields = ['name']
+        fields = ['name', 'private']
 
 #Vanhat:
 #class AddPhotoForm(forms.Form):

@@ -25,8 +25,7 @@
                 {% if user.is_authenticated %}
                 Hi {{ user.username }}!
                 {% else %}
-                <p>You are not logged in</p>
-                <a href="{% url 'login' %}">Log In</a>
+                <meta http-equiv="Refresh" content="0; url='{% url 'login' %}'" />
                 {% endif %}
             </div>
 
@@ -40,20 +39,32 @@
         </section>
 
         {% block content %}
+        
+        
         <div style="width:100%">      
-            {% for UserPhoto in UserPhotos %}
+        {% for UserPhoto in UserPhotos %}
+            <!--Jos galleria ei ole oma ja on privaatti niin palautetaan etusivulle-->
+            {% if  UserPhoto.galleria.owner != user and UserPhoto.galleria.private == True %}
+                <meta http-equiv="Refresh" content="0; url='http://127.0.0.1:8000/g/'" />
+            <!--Jos Galleria on oma tai ei privaatti niin näytetään kuvat-->
+            {% else %}
             <div style="float:left; width:30%; height:200px; margin-left: 3px">
                 <p>{{ UserPhoto.description }}</p>
-
+                owner of the gallery where photo belongs: {{ UserPhoto.galleria.owner }}
                 <!--Attempts to open the image to a new window-->
                 <a href="{{UserPhoto.image.url}}" target="_blank">
                 <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
                 </a>
 
-
                 <a href="delete/{{ UserPhoto.id }}">Delete</a>
             </div>
+            {% endif %}
+
         {% endfor %}
+        <!--Tarkistetaan onko Userphotos tyhjä, jos ei kuvia niin ohjataan gallerian etusivulle-->
+        {% if not UserPhotos %}
+        <meta http-equiv="Refresh" content="0; url='http://127.0.0.1:8000/g'" />
+        {% endif %}
         </div>
 
         {% endblock %}
