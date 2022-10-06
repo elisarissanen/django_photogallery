@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from taggit.managers import TaggableManager
+
 
 # Create your models here.
 
@@ -62,6 +64,7 @@ class UserPhoto(models.Model):
     description = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     mod_date = models.DateTimeField('date modified', auto_now=True)
+    tags = TaggableManager()
 
    # usergallery = models.ForeignKey(UserGallery, on_delete=models.CASCADE,blank=True,null=True)
     

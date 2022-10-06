@@ -5,7 +5,7 @@ from .models import UserGallery
 class UploadForm(forms.ModelForm):
     class Meta:
         model = UserPhoto
-        fields = ['description', 'image', 'galleria']
+        fields = ['description', 'image', 'galleria', 'tags']
 
 class CreateGalleryForm(forms.ModelForm):
     class Meta:
