@@ -45,6 +45,9 @@
             <div style="float:left; width:30%; height:200px; margin-left: 3px">
                 <p>{{ UserPhoto.description }}</p>
 
+                <p>{{UserPhoto.tags.all|join:", "}}
+                </p>
+
                 <!--Attempts to open the image to a new window-->
                 <a href="{{UserPhoto.image.url}}" target="_blank">
                 <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
