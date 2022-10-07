@@ -45,7 +45,7 @@
         {% for UserPhoto in UserPhotos %}
             <!--Jos galleria ei ole oma ja on privaatti niin palautetaan etusivulle-->
             {% if  UserPhoto.galleria.owner != user and UserPhoto.galleria.private == True %}
-                <meta http-equiv="Refresh" content="0; url='http://127.0.0.1:8000/g/'" />
+                <meta http-equiv="Refresh" content="0; url='/g/'" />
             <!--Jos Galleria on oma tai ei privaatti niin näytetään kuvat-->
             {% else %}
             <div style="float:left; width:30%; height:200px; margin-left: 3px">
@@ -61,10 +61,11 @@
                 <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
                 </a>
 
-                <a href="delete/{{ UserPhoto.id }}">Delete</a>
+                <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
             </div>
             {% endif %}
-
+        {% empty %}
+        <meta http-equiv="Refresh" content="0; url='/g/image_upload'" />
         {% endfor %}
         <!--Tarkistetaan onko Userphotos tyhjä, jos ei kuvia niin ohjataan gallerian etusivulle-->
         
