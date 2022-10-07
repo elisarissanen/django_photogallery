@@ -1,5 +1,6 @@
 from email.policy import default
 from unittest.util import _MAX_LENGTH
+from urllib import request
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -25,7 +26,7 @@ from taggit.managers import TaggableManager
 
 def gallery_owner(instance):
     current_user = request.user
-    return '{}'.format(current.user)
+    return '{}'.format(instance.current_user)
 
 class UserGallery(models.Model):
     """Database object UserGallery to store images"""
@@ -37,8 +38,8 @@ class UserGallery(models.Model):
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     mod_date = models.DateTimeField('date modified', auto_now=True)
 
-   # owner2 = gallery_owner(self)
-
+    #owner = gallery_owner(self)
+    
     def __str__(self):
         return self.name
 

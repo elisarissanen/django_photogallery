@@ -47,8 +47,11 @@ def image_upload(request):
 def create_gallery(request):
     if request.method == 'POST':
         formgal = CreateGalleryForm(request.POST)
-        if formgal.is_valid():           
-            formgal.save()
+        if formgal.is_valid():
+            obj = formgal.save(commit=False)
+            obj.owner = request.user
+            obj.save()
+
             return redirect('galleria:successgal')
     else:
         formgal = CreateGalleryForm()
