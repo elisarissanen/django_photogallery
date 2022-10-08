@@ -20,4 +20,5 @@ urlpatterns = [
     path('success', success, name = 'success'),
     path('successgal', successgal, name = 'successgal'),
     path('delete/<int:id>', views.delete, name='delete'),
+    path('gallerydelete/<int:id>', views.gallerydelete, name='gallerydelete'),
 ]

@@ -78,6 +78,11 @@ def delete(request, id):
   member.delete()
   return render(request, 'galleria/index.html', {})
 
+def gallerydelete(request, id):
+  member = UserGallery.objects.get(id=id)
+  member.delete()
+  return render(request, 'galleria/index.html', {})
+
 # tähän vois tehdä listview
 
 # Tää toimii ainakin
