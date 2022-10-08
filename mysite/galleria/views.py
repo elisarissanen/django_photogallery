@@ -26,9 +26,15 @@ def display_images(request, id):
         UserPhotos = UserPhoto.objects.filter(galleria_id = id)
         return render(request, 'galleria/galleria.html', {'UserPhotos' : UserPhotos})
 
-def ITdisplay_images(request):
+#def ITdisplay_images(request):
+    #if request.method == 'GET':
+        #ITUserPhotos = UserPhoto.objects.all()
+        #return render(request, 'galleria/tags.html', {'ITUserPhotos' : ITUserPhotos})
+
+# Sama kuin yllä, mutta filtteröi hakusanan mukaan
+def ITdisplay_images(request, tag):
     if request.method == 'GET':
-        ITUserPhotos = UserPhoto.objects.all()
+        ITUserPhotos = UserPhoto.objects.filter(tags__name__in = [tag])
         return render(request, 'galleria/tags.html', {'ITUserPhotos' : ITUserPhotos})
 
 #def tags_lookup(request):

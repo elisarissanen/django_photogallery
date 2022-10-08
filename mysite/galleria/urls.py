@@ -14,7 +14,7 @@ from . import views
 app_name = 'galleria'
 urlpatterns = [
     path('<int:id>/', display_images, name = 'display_images'),
-    path('tags', ITdisplay_images, name = 'display_images'), # iteroitava displöö images
+    path('tags/<str:tag>', ITdisplay_images, name = 'display_images'), # iteroitava displöö images
     path('', display_galleries, name = 'display_galleries'),
     path('image_upload', image_upload, name = 'image_upload'),
     path('create_gallery', create_gallery, name = 'create_gallery'),
