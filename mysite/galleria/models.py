@@ -67,6 +67,10 @@ class UserPhoto(models.Model):
     mod_date = models.DateTimeField('date modified', auto_now=True)
     tags = TaggableManager()
 
+    @property
+    def phohtos(self):
+        return self.image_preview.all()
+
    # usergallery = models.ForeignKey(UserGallery, on_delete=models.CASCADE,blank=True,null=True)
     
     #name = models.CharField(max_length=50, default=None) # photo name? joku generointi tähän?

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.urls.base import reverse_lazy
 from django.views.generic.edit import CreateView
-
+from django.views import View
 
 from .models import UserGallery
 
@@ -25,6 +25,17 @@ def display_images(request, id):
     if request.method == 'GET':
         UserPhotos = UserPhoto.objects.filter(galleria_id = id)
         return render(request, 'galleria/galleria.html', {'UserPhotos' : UserPhotos})
+
+def ITdisplay_images(request):
+    if request.method == 'GET':
+        ITUserPhotos = UserPhoto.objects.all()
+        return render(request, 'galleria/tags.html', {'ITUserPhotos' : ITUserPhotos})
+
+#def tags_lookup(request):
+    # first we get the posted q term, or return 'notfound' if the form fails to provide a value
+    #term = request.POST.get('q', 'notfound')
+    #return redirect('galleria/tags.html', name = term)
+
 
 def display_galleries(request):
     if request.method == 'GET':
@@ -82,6 +93,12 @@ def gallerydelete(request, id):
   member = UserGallery.objects.get(id=id)
   member.delete()
   return render(request, 'galleria/index.html', {})
+
+
+def tags(request):
+    UserPhotos = UserPhoto.objects.filter(tags__name=tags)
+    return render(request, 'galleria/tags.html', {'tags': tags, 'UserPhotos': UserPhotos})
+
 
 # tähän vois tehdä listview
 

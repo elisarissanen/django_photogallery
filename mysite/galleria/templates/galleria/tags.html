@@ -1,0 +1,22 @@
+{% extends "galleria/index.html" %}
+{% block content %}
+
+    <h1> Search with a tag <h1>
+    
+
+        {% if ITUserPhotos %}
+        
+        {% for UserPhoto in ITUserPhotos %}
+
+            <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 30%; float: left; margin-right: 10px;" />
+
+        {% endfor %}
+        
+        {% else %}
+        
+            <p>No images</p>
+        
+        {% endif%}
+
+
+{% endblock %}

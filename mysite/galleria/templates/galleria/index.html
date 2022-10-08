@@ -48,6 +48,11 @@
             <h1>Galleriat</h1>
             <p><a href="{% url 'galleria:create_gallery' %}">Create new gallery</a></p>
             <p><a href="{% url 'galleria:image_upload' %}">Upload more images</a></p>
+
+            <br>
+
+
+            <br>
         </div>
         
         {% for UserGallery in UserGalleries %}
@@ -55,13 +60,11 @@
             <h2>Private Gallery: {{UserGallery.name}} </h2>
             <p><a href="{% url 'galleria:display_images' id=UserGallery.id %}">Click here to check out {{ UserGallery.name }}</a></p>
             <p><a href="/g/gallerydelete/{{ UserGallery.id }}">Delete gallery</a></p>
-            <p>eka</p>
         
         {% elif UserGallery.owner == user and UserGallery.private == False %}
             <h2>Public Gallery: {{UserGallery.name}} </h2>
             <p><a href="{% url 'galleria:display_images' id=UserGallery.id %}">Click here to check out {{ UserGallery.name }}</a></p>
             <p><a href="/g/gallerydelete/{{ UserGallery.id }}">Delete gallery</a></p>
-            <p>toka</p>
 
         {% elif UserGallery.owner != user and UserGallery.private == False %}
             h2>Public Gallery: {{UserGallery.name}}</h2>
