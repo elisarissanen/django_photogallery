@@ -61,7 +61,9 @@
                 <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
                 </a>
 
-                <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
+                {% if UserPhoto.galleria.owner == user %}
+                    <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
+                {% endif %}
             </div>
             {% endif %}
         {% empty %}
