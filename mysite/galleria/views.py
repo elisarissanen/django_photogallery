@@ -52,12 +52,14 @@ def display_galleries(request):
 @login_required
 def image_upload(request):
     if request.method == 'POST':
-        form = UploadForm(request.POST, request.FILES)
+        form = UploadForm(request.user, request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            image = form.save(commit=False)
+            image.owner = request.user
+            image.save()
             return redirect('galleria:success')
     else:
-        form = UploadForm()
+        form = UploadForm(request.user)
     return render(request, 'galleria/upload.html', {'form' : form})
 
 @login_required

@@ -55,6 +55,7 @@ class UserPhoto(models.Model):
     """ kuvan tallennus käyttäjäID:tä vastaavaan sijaintiin media kansiossa """
     #Tähän viittaus tiettyyn galleriaan esim:
     #id = models.AutoField(primary_key=True)
+    
     galleria = models.ForeignKey(UserGallery, on_delete=models.CASCADE, default = 0)
     image = models.ImageField(upload_to=user_directory_path)
     image_preview = ImageSpecField(source='image',
