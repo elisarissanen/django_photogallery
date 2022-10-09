@@ -46,12 +46,28 @@
   
 </div>
 <div class="leiska2">
-  <!--Here could be put some images either from public galleries or some random cat pics-->
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere est felis, id blandit justo vehicula eu. Nam sollicitudin id dui a condimentum. Duis quis maximus ex. Nam ac sagittis ante. Sed feugiat pellentesque lacinia. Cras porttitor sapien eget finibus scelerisque. Pellentesque consequat lacus id urna laoreet aliquet. Fusce elit arcu, elementum a faucibus sed, gravida nec nulla. Suspendisse tellus ipsum, varius a ultricies et, scelerisque nec leo. Nullam porttitor dui non pharetra blandit. Mauris pharetra nisi a fringilla placerat.
-  Integer tortor sapien, iaculis faucibus quam ac, egestas lobortis purus. Proin libero justo, feugiat quis nibh in, ornare vulputate nunc. In ullamcorper vulputate orci ut mollis. In fermentum maximus pretium. Donec luctus pretium mauris sit amet tempus. Aenean non erat sed justo rhoncus dignissim. Cras id mollis ante, sed cursus erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ac dapibus nisi. Quisque scelerisque enim quis tristique accumsan. Integer eros nisl, vehicula et lectus at, sodales dictum velit. Maecenas sit amet faucibus nisl, vel semper erat.
-  Proin pellentesque ultrices tellus. Nunc et sapien eu nibh imperdiet iaculis id ut felis. Quisque in turpis a ante pellentesque laoreet. Curabitur lacinia vestibulum iaculis. Mauris accumsan purus quis nunc euismod, rhoncus sodales nulla fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non lorem a metus pellentesque aliquam non ac ex. Sed elementum tellus id finibus posuere. Pellentesque aliquet iaculis odio, sit amet accumsan massa laoreet fringilla.
-  Duis cursus a velit ultrices luctus. Vestibulum in elit feugiat, feugiat nunc in, vulputate tellus. Quisque dictum, tellus a vulputate feugiat, elit ante porttitor erat, et euismod ex tortor sit amet arcu. Sed hendrerit nibh sit amet convallis fermentum. Mauris in ornare augue. Aliquam eleifend condimentum odio a iaculis. Curabitur dapibus volutpat mattis.
-  Phasellus at vulputate justo. Curabitur sodales tristique nisi et bibendum. Vivamus bibendum magna sed cursus dictum. Quisque mattis auctor erat quis gravida. Sed sed ultricies orci. Ut scelerisque quam id felis finibus, feugiat euismod lorem ullamcorper. Proin a arcu nec lorem porta vestibulum a eu erat. In ac erat bibendum, rhoncus nibh eget, bibendum turpis. Vivamus et tellus accumsan, aliquet nibh eu, suscipit nisi. Fusce molestie libero sit amet mauris pellentesque porta. Suspendisse porta magna in sem rhoncus porttitor. Quisque augue quam, vulputate at pharetra eu, lobortis nec lectus.
+
+  {% if ITUserPhotos %}
+        
+  {% for UserPhoto in ITUserPhotos %}
+
+      <!--{% if UserPhoto.galleria.private == False %}-->
+
+        {{ UserPhoto.description }}  
+
+      <!--{% endif %}-->
+
+  {% endfor %}
+  
+  {% else %}
+  
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere est felis, id blandit justo vehicula eu. Nam sollicitudin id dui a condimentum. Duis quis maximus ex. Nam ac sagittis ante. Sed feugiat pellentesque lacinia. Cras porttitor sapien eget finibus scelerisque. Pellentesque consequat lacus id urna laoreet aliquet. Fusce elit arcu, elementum a faucibus sed, gravida nec nulla. Suspendisse tellus ipsum, varius a ultricies et, scelerisque nec leo. Nullam porttitor dui non pharetra blandit. Mauris pharetra nisi a fringilla placerat.
+        Integer tortor sapien, iaculis faucibus quam ac, egestas lobortis purus. Proin libero justo, feugiat quis nibh in, ornare vulputate nunc. In ullamcorper vulputate orci ut mollis. In fermentum maximus pretium. Donec luctus pretium mauris sit amet tempus. Aenean non erat sed justo rhoncus dignissim. Cras id mollis ante, sed cursus erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ac dapibus nisi. Quisque scelerisque enim quis tristique accumsan. Integer eros nisl, vehicula et lectus at, sodales dictum velit. Maecenas sit amet faucibus nisl, vel semper erat.
+        Proin pellentesque ultrices tellus. Nunc et sapien eu nibh imperdiet iaculis id ut felis. Quisque in turpis a ante pellentesque laoreet. Curabitur lacinia vestibulum iaculis. Mauris accumsan purus quis nunc euismod, rhoncus sodales nulla fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non lorem a metus pellentesque aliquam non ac ex. Sed elementum tellus id finibus posuere. Pellentesque aliquet iaculis odio, sit amet accumsan massa laoreet fringilla.
+        Duis cursus a velit ultrices luctus. Vestibulum in elit feugiat, feugiat nunc in, vulputate tellus. Quisque dictum, tellus a vulputate feugiat, elit ante porttitor erat, et euismod ex tortor sit amet arcu. Sed hendrerit nibh sit amet convallis fermentum. Mauris in ornare augue. Aliquam eleifend condimentum odio a iaculis. Curabitur dapibus volutpat mattis.
+        Phasellus at vulputate justo. Curabitur sodales tristique nisi et bibendum. Vivamus bibendum magna sed cursus dictum. Quisque mattis auctor erat quis gravida. Sed sed ultricies orci. Ut scelerisque quam id felis finibus, feugiat euismod lorem ullamcorper. Proin a arcu nec lorem porta vestibulum a eu erat. In ac erat bibendum, rhoncus nibh eget, bibendum turpis. Vivamus et tellus accumsan, aliquet nibh eu, suscipit nisi. Fusce molestie libero sit amet mauris pellentesque porta. Suspendisse porta magna in sem rhoncus porttitor. Quisque augue quam, vulputate at pharetra eu, lobortis nec lectus.</p>
+  
+  {% endif%}
 </div>
 
 </section>
