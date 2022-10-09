@@ -1,4 +1,6 @@
+from email.mime import image
 from http.client import HTTPResponse
+from multiprocessing import context
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -6,7 +8,7 @@ from django.urls import reverse
 from django.urls.base import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.views import View
-
+from django.contrib import messages
 from .models import UserGallery
 
 #from .forms import AddPhotoForm
@@ -18,6 +20,7 @@ from django.shortcuts import render, redirect
 from .models import UserPhoto
 from .forms import UploadForm
 from .forms import CreateGalleryForm
+from django.views.generic import DeleteView
 
 from django.contrib.auth.decorators import login_required
 
@@ -92,15 +95,28 @@ def index(request):
     return render(request, 'galleria/index.html') #, context)
 
 
-def delete(request, id):
-  member = UserPhoto.objects.get(id=id)
-  member.delete()
-  return render(request, 'galleria/index.html', {})
+def deleteimage(request, id):
+    imageobject = UserPhoto.objects.get(id=id)
+    owner = imageobject.owner
 
-def gallerydelete(request, id):
-  member = UserGallery.objects.get(id=id)
-  member.delete()
-  return render(request, 'galleria/index.html', {})
+    if request.method == "POST" and request.user.is_authenticated and request.user == owner:
+        imageobject.delete()
+        messages.success(request, "Post successfully deleted!")
+        return HttpResponseRedirect("/g/")
+    context = {'imageobject': imageobject, 'owner': owner,}
+    return render(request, 'galleria/deleteimage.html', context)
+
+
+def deletegallery(request, id):
+    galleryobject = UserGallery.objects.get(id=id)
+    owner = galleryobject.owner
+
+    if request.method == "POST" and request.user.is_authenticated and request.user == owner:
+        galleryobject.delete()
+        messages.success(request, "Post successfully deleted!")
+        return HttpResponseRedirect("/g/")
+    context = {'galleryobject': galleryobject, 'owner': owner,}
+    return render(request, 'galleria/deletegallery.html', context)
 
 
 def tags(request):

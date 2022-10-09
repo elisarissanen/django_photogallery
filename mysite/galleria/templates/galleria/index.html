@@ -60,13 +60,15 @@
         {% if UserGallery.owner == user and UserGallery.private == True %}
             <h2>Private Gallery: {{UserGallery.name}} </h2>
             <p><a href="{% url 'galleria:display_images' id=UserGallery.id %}">Click here to check out {{ UserGallery.name }}</a></p>
-            <p><a href="/g/gallerydelete/{{ UserGallery.id }}">Delete gallery</a></p>
-        
+            {% if UserGallery.owner == user %}
+                <a href="/g/deletegallery/{{ UserGallery.id }}">Delete</a>
+            {% endif %}
         {% elif UserGallery.owner == user and UserGallery.private == False %}
             <h2>Public Gallery: {{UserGallery.name}} </h2>
             <p><a href="{% url 'galleria:display_images' id=UserGallery.id %}">Click here to check out {{ UserGallery.name }}</a></p>
-            <p><a href="/g/gallerydelete/{{ UserGallery.id }}">Delete gallery</a></p>
-
+            {% if UserGallery.owner == user %}
+                <a href="/g/deletegallery/{{ UserGallery.id }}">Delete</a>
+            {% endif %}
         {% elif UserGallery.owner != user and UserGallery.private == False %}
             <h2>Public Gallery: {{UserGallery.name}}</h2>
             <p><a href="{% url 'galleria:display_images' id=UserGallery.id %}">Click here to check out {{ UserGallery.name }}</a></p>

@@ -57,6 +57,7 @@ class UserPhoto(models.Model):
     #id = models.AutoField(primary_key=True)
     
     galleria = models.ForeignKey(UserGallery, on_delete=models.CASCADE, default = 0)
+    owner = models.ForeignKey(User, default=User, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(upload_to=user_directory_path)
     image_preview = ImageSpecField(source='image',
                                   processors=[ResizeToFill(100, 100)],

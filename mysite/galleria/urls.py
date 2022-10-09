@@ -21,6 +21,6 @@ urlpatterns = [
     path('success', success, name = 'success'),
     path('successgal', successgal, name = 'successgal'),
     path('tags', tags, name='tags'),
-    path('delete/<int:id>', views.delete, name='delete'),
-    path('gallerydelete/<int:id>', views.gallerydelete, name='gallerydelete'),
+    path('delete/<int:id>', views.deleteimage, name='deleteimage'),
+    path('deletegallery/<int:id>', views.deletegallery, name='deletegallery'),
 ]
