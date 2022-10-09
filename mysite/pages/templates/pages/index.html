@@ -50,14 +50,9 @@
   {% if ITUserPhotos %}
         
   {% for UserPhoto in ITUserPhotos %}
-
-      
-
-        {{ UserPhoto.description }}  
-        <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
-      
-      
-
+  
+        <img src="{{ UserPhoto.image.url }}" class="img-responsive" style="width: 30%; height:200px; overflow:hidden; float: left; margin-right: 10px; margin-top: 10px; " />
+    
   {% endfor %}
   
   {% else %}
