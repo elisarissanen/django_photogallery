@@ -51,11 +51,12 @@
         
   {% for UserPhoto in ITUserPhotos %}
 
-      <!--{% if UserPhoto.galleria.private == False %}-->
+      
 
         {{ UserPhoto.description }}  
-
-      <!--{% endif %}-->
+        <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+      
+      
 
   {% endfor %}
   
