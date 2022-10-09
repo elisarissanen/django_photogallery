@@ -57,7 +57,7 @@ def image_upload(request):
     if request.method == 'POST':
         form = UploadForm(request.user, request.POST, request.FILES)
         if form.is_valid():
-            image = form.save(commit=False)
+            image = form.save()
             image.owner = request.user
             image.save()
             return redirect('galleria:success')
