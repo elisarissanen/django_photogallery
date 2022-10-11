@@ -1,82 +1,81 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Images</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Images</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Oswald"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+    />
 
+    <link
+      rel="stylesheet"
+      href="{% static '/pages/style.css' %}"
+      type="text/css"
+    />
 
-        <link rel="stylesheet" href="{% static '/pages/style.css' %}" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <section class="ylaleiska">
+      <div>
+        {% if user.is_authenticated %} Hi {{ user.username }}! {% else %}
+        <meta http-equiv="Refresh" content="0; url='{% url 'login' %}'" />
+        {% endif %}
+      </div>
 
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-        </script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-        </script>
-    </head>
-    <body>
+      <div id="bl1">
+        <p><a href="/g">Front page</a></p>
+      </div>
 
-        <section class="ylaleiska">
-            <div>
-                {% if user.is_authenticated %}
-                Hi {{ user.username }}!
-                {% else %}
-                <meta http-equiv="Refresh" content="0; url='{% url 'login' %}'" />
-                {% endif %}
-            </div>
+      <div id="bl2">
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+      </div>
 
-            <div id=bl1>
-                <p><a href="/g">Front page</a></p>
-            </div>
+    </section>
 
-            <div id=bl2>
-                <p><a href="{% url 'logout' %}">Log Out</a></p>
-            </div>  
-        </section>
+    {% block content %}
 
-        {% block content %}
-        
-        
-        <div style="width:100%">      
-        {% for UserPhoto in UserPhotos %}
-            <!--Jos galleria ei ole oma ja on privaatti niin palautetaan etusivulle-->
-            {% if  UserPhoto.galleria.owner != user and UserPhoto.galleria.private == True %}
-                <meta http-equiv="Refresh" content="0; url='/g/'" />
-            <!--Jos Galleria on oma tai ei privaatti niin näytetään kuvat-->
-            {% else %}
-            <div style="float:left; width:30%; margin-left: 3px">
-                <p>{{ UserPhoto.description }}</p>
-                <!--owner of the gallery where photo belongs: {{ UserPhoto.galleria.owner }}-->
+    <div style="width: 100%">
+      {% for UserPhoto in UserPhotos %}
+      <!--Jos galleria ei ole oma ja on privaatti niin palautetaan etusivulle-->
+      {% if UserPhoto.galleria.owner != user and UserPhoto.galleria.private == True %}
+      <meta http-equiv="Refresh" content="0; url='/g/'" />
+      <!--Jos Galleria on oma tai ei privaatti niin näytetään kuvat-->
+      {% else %}
+      <div style="float: left; width: 30%; margin-left: 3px">
+        <p>{{ UserPhoto.description }}</p>
+        <!--owner of the gallery where photo belongs: {{ UserPhoto.galleria.owner }}-->
 
+        <p>{{UserPhoto.tags.all|join:", "}}</p>
 
-                <p>{{UserPhoto.tags.all|join:", "}}
-                </p>
+        <!--Attempts to open the image to a new window-->
+        <a href="{{UserPhoto.image.url}}" target="_blank">
+          <img
+            src="{{ UserPhoto.image_preview.url }}"
+            class="img-responsive"
+            style="width: 100%; float: left; margin-right: 10px"
+          />
+        </a>
 
-                <!--Attempts to open the image to a new window-->
-                <a href="{{UserPhoto.image.url}}" target="_blank">
-                <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
-                </a>
+        {% if UserPhoto.galleria.owner == user %}
+        <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
+        {% endif %}
+      </div>
+      {% endif %} {% empty %}
+      <!--Tarkistetaan onko Userphotos tyhjä, jos ei kuvia niin ohjataan gallerian etusivulle-->
+      <meta http-equiv="Refresh" content="0; url='/g/image_upload'" />
+      {% endfor %}
+    </div>
 
-                {% if UserPhoto.galleria.owner == user %}
-                    <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
-                {% endif %}
-            </div>
-            {% endif %}
-        {% empty %}
-        <!--Tarkistetaan onko Userphotos tyhjä, jos ei kuvia niin ohjataan gallerian etusivulle-->
-        <meta http-equiv="Refresh" content="0; url='/g/image_upload'" />
-        {% endfor %}
-        
-        
-        </div>
-
-
-        {% endblock %}
-
-    </body>
+    {% endblock %}
+  </body>
 </html>
-

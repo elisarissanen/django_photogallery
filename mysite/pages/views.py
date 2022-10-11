@@ -2,6 +2,7 @@ from django.shortcuts import render
 from galleria.models import UserPhoto
 import random
 
+
 def index(request):
     context = {}
     return render(request, 'pages/index.html', context)
@@ -18,4 +19,5 @@ def ITdisplay_images(request):
                 else:
                     break
         random.shuffle(ITUserPhotos)
-        return render(request, 'pages/index.html', {'ITUserPhotos' : ITUserPhotos})
+        return render(request, 'pages/index.html',
+                      {'ITUserPhotos': ITUserPhotos})

@@ -1,24 +1,13 @@
-{% extends "galleria/index.html" %}
-
-{% block content %}
-
-
-{%if request.user.is_authenticated and request.user == galleryobject.owner %}
+{% extends "galleria/index.html" %} {% block content %} {%if
+request.user.is_authenticated and request.user == galleryobject.owner %}
 
 <h1>Delete gallery {{ galleryobject.id }}?</h1>
 
-
 <form method="POST" action="">
-{% csrf_token %}
-Are you sure you want to delete this gallery? 
-<input type="submit" value="Yes"/>
-<a href="/galleria/{{ galleryobject.id }}/">Cancel </a>
+  {% csrf_token %} Are you sure you want to delete this gallery?
+  <input type="submit" value="Yes" />
+  <a href="/galleria/{{ galleryobject.id }}/">Cancel </a>
 </form>
-{% endif %}
-
-{%if request.user != galleryobject.owner %}
+{% endif %} {%if request.user != galleryobject.owner %}
 <meta http-equiv="Refresh" content="0; url='/g'" />
-{% endif %}
-
-
-{% endblock %}
+{% endif %} {% endblock %}

@@ -1,25 +1,20 @@
-{% extends "galleria/index.html" %}
-{% block content %}
+{% extends "galleria/index.html" %} {% block content %}
 
-    <h1> Search with a tag <h1>
-    
+<h1>
+  Search with a tag
+  <h1>
+    {% if ITUserPhotos %} {% for UserPhoto in ITUserPhotos %} {% if
+    UserPhoto.galleria.private == False %}
+    <img
+      src="{{ UserPhoto.image_preview.url }}"
+      class="img-responsive"
+      style="width: 30%; float: left; margin-right: 10px"
+    />
+    <!--{{UserPhoto.galleria.private}} , tästä tarvitsisi tehdä myös if-lause -->
+    {% endif %} {% endfor %} {% else %}
 
-        {% if ITUserPhotos %}
-        
-        {% for UserPhoto in ITUserPhotos %}
+    <p>No images</p>
 
-            {% if UserPhoto.galleria.private == False %}
-                <img src="{{ UserPhoto.image_preview.url }}" class="img-responsive" style="width: 30%; float: left; margin-right: 10px;" />
-                <!--{{UserPhoto.galleria.private}} , tästä tarvitsisi tehdä myös if-lause -->
-            {% endif %}
-
-        {% endfor %}
-        
-        {% else %}
-        
-            <p>No images</p>
-        
-        {% endif%}
-
-
-{% endblock %}
+    {% endif%} {% endblock %}
+  </h1>
+</h1>

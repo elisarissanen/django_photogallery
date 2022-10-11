@@ -1,5 +1,3 @@
-
-
 .layout {
   width: 100%;
   display: flex;
@@ -7,20 +5,20 @@
   gap: 10px;
 }
 
-.leiska1{
+.leiska1 {
   flex: 1;
-  background-color: #113F59;
+  background-color: #113f59;
   padding: 15px;
 }
 
-.leiska2{
+.leiska2 {
   flex: 3;
-  background-color: #113F59;
+  background-color: #113f59;
   padding: 15px;
 }
 
-.ylaleiska{
-  width:100%;
+.ylaleiska {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -28,7 +26,7 @@
 }
 
 html {
-    background-color: #0A2434;
+  background-color: #0a2434;
 }
 
 body {
@@ -38,11 +36,16 @@ body {
   font-family: "Open Sans";
 }
 
-h1{
+h1 {
   text-align: center;
 }
-h2,h3,h4,h5,h6 {font-family: "Oswald"}
-
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald";
+}
 
 /* unvisited link */
 a:link {

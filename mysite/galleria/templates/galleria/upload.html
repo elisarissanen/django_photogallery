@@ -1,11 +1,8 @@
-{% extends "galleria/index.html" %}
-
-{% block content %}
+{% extends "galleria/index.html" %} {% block content %}
 <h1>Image Upload</h1>
-<form method = "post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Upload</button>
 </form>
 
 <p><a href="{% url 'galleria:display_galleries' %}">Go back to main page</a></p>
