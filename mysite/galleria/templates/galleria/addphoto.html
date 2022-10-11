@@ -2,21 +2,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo gallery | Add photo</title>
-</head>
-<body>
+  </head>
+  <body>
     {% block content %}
     <h1>Add photo</h1>
     <form action="add_photo" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Add photo">
+      {% csrf_token %} {{ form }}
+      <input type="submit" value="Add photo" />
     </form>
     <p><a href="{% url 'galleria:index' %}"> View photos</a></p>
     {%endblock%}
-</body>
+  </body>
 </html>
