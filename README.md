@@ -1,8 +1,8 @@
 # subaru-letit
 
-Elisa Rissanen
-Mitro Latosuo
-Simo Heinonen
+* Elisa Rissanen
+* Mitro Latosuo
+* Simo Heinonen
 
 The project aims to create a web application, which is built on top of a relational database using a web framework. The projects are done as group work in teams of 2-3 people.
 
