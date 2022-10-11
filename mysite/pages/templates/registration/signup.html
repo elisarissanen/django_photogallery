@@ -1,6 +1,14 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
+  <style>
+    @media (max-width: 767px) {
+    body, .form {
+      text-align: center;
+    }
+  }
+  </style>
+
   <h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
