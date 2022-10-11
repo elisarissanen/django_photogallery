@@ -66,9 +66,9 @@
           />
         </a>
 
-        {% if UserPhoto.galleria.owner == user %}
-        <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
-        {% endif %}
+      {% if UserPhoto.galleria.owner == user or UserPhoto.owner == user %}
+      <a href="/g/delete/{{ UserPhoto.id }}">Delete</a>
+      {% endif %}
       </div>
       {% endif %} {% empty %}
       <!--Tarkistetaan onko Userphotos tyhjä, jos ei kuvia niin ohjataan gallerian etusivulle-->
