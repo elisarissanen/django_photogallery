@@ -1,18 +1,39 @@
-{% block title %}Sign Up{% endblock %}
-
 {% block content %}
   <style>
-    @media (max-width: 767px) {
-    body, .form {
+    @media (min-width: 1px) and (max-width: 1000px) {
+    .laatikko {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    h2 {
       text-align: center;
+    }
+    .laatikonlaatikko input[type=text], input[type=password] {
+      display: flex;
+      font-size: 30;
+      width: 100%;
+      align-content:center;
+      align-items: stretch;
+    }
+    ul {
+      font-size: 105%;
     }
   }
   </style>
 
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
+  <section class ="laatikko">
+    <h2>Sign up</h2>
+    <section class="laatikonlaatikko">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+  </section>
 {% endblock %}
