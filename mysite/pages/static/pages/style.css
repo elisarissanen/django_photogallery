@@ -83,9 +83,18 @@ a:active {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1300px) {
+@media screen and (min-width: 768px) and (max-width: 1299px) {
   body{
     width: 90%;
+  }
+  .leiska1{
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  body{
+    width: 60%;
   }
   .leiska1{
     text-align: center;
