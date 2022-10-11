@@ -86,7 +86,7 @@ def deleteimage(request, id):
     imageobject = UserPhoto.objects.get(id=id)
     owner = imageobject.owner
 
-    if request.method == "POST" and request.user.is_authenticated and request.user == owner:
+    if request.method == "POST" and request.user.is_authenticated and request.user == owner or request.method == "POST" and request.user.is_authenticated and request.user == imageobject.galleria.owner:
         imageobject.delete()
         messages.success(request, "Post successfully deleted!")
         return HttpResponseRedirect("/g/")

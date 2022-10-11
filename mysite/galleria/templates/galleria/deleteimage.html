@@ -1,5 +1,5 @@
 {% extends "galleria/index.html" %} {% block content %} 
-{% if request.user.is_authenticated and request.user == imageobject.owner %}
+{% if request.user.is_authenticated and request.user == imageobject.owner or request.user.is_authenticated and request.user == imageobject.galleria.owner %}
 
 <h1>Delete imageobject {{ imageobject.id }}?</h1>
 
@@ -8,6 +8,10 @@
   <input type="submit" value="Yes" />
   <a href="/galleria/{{ imageobject.id }}/">Cancel </a>
 </form>
-{% endif %} {%if request.user != imageobject.owner %}
+
+ 
+{% endif %} 
+{% if request.user != imageobject.owner and request.user != imageobject.galleria.owner %}
 <meta http-equiv="Refresh" content="0; url='/g'" />
-{% endif %} {% endblock %}
+{% endif %} 
+{% endblock %}
