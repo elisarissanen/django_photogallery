@@ -1,8 +1,12 @@
-Project topic
+Project topic 
+  Subaru-letit kuvagaltsu
 group members (full name)
-public ip address where the service found as the end result
-of the project can be tested
-test ID with passwords for testing, unless you can easily
-create IDs yourself
+  Elisa Rissanen, Mitro Latosuo, Simo Heinonen
+public ip address where the service found as the end result of the project can be tested
+  http://kuvapirkot.norwayeast.cloudapp.azure.com:8080/
+test ID with passwords for testing, unless you can easily create IDs yourself
+  Visitor can create ID easily
 link to the project's GitHub (use the same GitHub organization as for assignments as well)
+  https://github.com/hamk-webdev-intim21a6/subaru-letit
 link to YouTube video
+  https://www.youtube.com/watch?v=szE5ZR_dEzc
