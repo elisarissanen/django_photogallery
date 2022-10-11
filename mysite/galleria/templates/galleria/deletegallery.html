@@ -1,5 +1,5 @@
-{% extends "galleria/index.html" %} {% block content %} {%if
-request.user.is_authenticated and request.user == galleryobject.owner %}
+{% extends "galleria/index.html" %} {% block content %} 
+{% if request.user.is_authenticated and request.user == galleryobject.owner %}
 
 <h1>Delete gallery {{ galleryobject.id }}?</h1>
 
